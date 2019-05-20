@@ -50,7 +50,7 @@ git reflog 记录所有命令
 ## 回退版本
 
 ```
-git reset --hard HEAD^	返回上一个版本
+git reset --hard HEAD^	返回上一个版本0 0
 git reset --hard （版本hash值） 返回Hash对应版本
 ```
 
