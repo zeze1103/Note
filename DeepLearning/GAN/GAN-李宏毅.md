@@ -6,11 +6,11 @@
 
 Algorithm
 
-![](/home/zeze/Documents/Note/DeepLearning/GAN/Pic/Screenshot from 2019-05-20 11-13-15.png)
+![](Pic/Screenshot from 2019-05-20 11-13-15.png)
 
-![](/home/zeze/Documents/Note/DeepLearning/GAN/Pic/Screenshot from 2019-05-20 11-18-14.png)
+![](Pic/Screenshot from 2019-05-20 11-18-14.png)
 
-![](/home/zeze/Documents/Note/DeepLearning/GAN/Pic/Screenshot from 2019-05-20 11-20-28.png)
+![](Pic/Screenshot from 2019-05-20 11-20-28.png)
 
 训练D和G的时候迭代次数各自是个hyperprameter
 
@@ -34,7 +34,7 @@ Auto-Encoder
 
 Variational Auto-Encoder
 
-![](/home/zeze/Documents/Note/DeepLearning/GAN/Pic/Screenshot from 2019-05-20 13-22-36.png)
+![](Pic/Screenshot from 2019-05-20 13-22-36.png)
 
 但这种方式中元素之间的关系容易被忽略，比如像素间位置关系。需要增加网络参数。
 
@@ -46,7 +46,7 @@ Discriminator: Evaluation Function, Potential Function, Energy Function
 
 首先，Discriminator分辨像素间关系要比Generator容易得多
 
-![](/home/zeze/Documents/Note/DeepLearning/GAN/Pic/Screenshot from 2019-05-20 13-40-44.png)
+![](Pic/Screenshot from 2019-05-20 13-40-44.png)
 
 如何训练Discriminator问题：
 
@@ -54,9 +54,9 @@ Discriminator: Evaluation Function, Potential Function, Energy Function
 
 ​	数据库中只有正例，需要额外生成反例。
 
-![](/home/zeze/Documents/Note/DeepLearning/GAN/Pic/Screenshot from 2019-05-20 13-44-59.png)
+![](Pic/Screenshot from 2019-05-20 13-44-59.png)
 
-![](/home/zeze/Documents/Note/DeepLearning/GAN/Pic/Screenshot from 2019-05-20 13-57-27.png)
+![](Pic/Screenshot from 2019-05-20 13-57-27.png)
 
  
 
@@ -69,15 +69,15 @@ Traditional Supervised approach: 容易产生数据集中多张Image平均的模
 GAN：
 	如果Discriminator只有图片的输入，那么Generator就会直接产生数据集中的图片，无视条件输入。所以Discriminator需要三种输入。
 
-![](/home/zeze/Documents/Note/DeepLearning/GAN/Pic/Screenshot from 2019-05-20 14-35-40.png)
+![](Pic/Screenshot from 2019-05-20 14-35-40.png)
 
-![](/home/zeze/Documents/Note/DeepLearning/GAN/Pic/Screenshot from 2019-05-20 14-38-00.png)
+![](Pic/Screenshot from 2019-05-20 14-38-00.png)
 
-![](/home/zeze/Documents/Note/DeepLearning/GAN/Pic/Screenshot from 2019-05-20 14-42-03.png)
+![](Pic/Screenshot from 2019-05-20 14-42-03.png)
 
 上图是两种Discriminator网络结构设计，下面的结构可以将两种Negative Sample的情况分开。
 
-### StackGAN![](/home/zeze/Documents/Note/DeepLearning/GAN/Pic/Screenshot from 2019-05-20 14-50-15.png)
+### StackGAN![](Pic/Screenshot from 2019-05-20 14-50-15.png)
 
 ### ### Image-to-Image
 
@@ -102,23 +102,23 @@ PatchGAN
 
 2. Projection to Common Space(Larger Change)
 
-   ![](/home/zeze/Documents/Note/DeepLearning/GAN/Pic/Screenshot from 2019-05-20 15-34-27.png)
+   ![](Pic/Screenshot from 2019-05-20 15-34-27.png)
 
    Training
 
-   ![](/home/zeze/Documents/Note/DeepLearning/GAN/Pic/Screenshot from 2019-05-20 15-44-02.png)
+   ![](Pic/Screenshot from 2019-05-20 15-44-02.png)
 
    训练中会遇到问题，因为两者分开训练，那么中间曾的codes不能通用。
 
-   ​	a.参数共用 Couple GAN/ UNIT	![](/home/zeze/Documents/Note/DeepLearning/GAN/Pic/Screenshot from 2019-05-20 15-46-04.png)
+   ​	a.参数共用 Couple GAN/ UNIT	![](Pic/Screenshot from 2019-05-20 15-46-04.png)
 
    ​	b.Domain Discriminator判断中间层embedding vector是来自与哪个Domain， 那么他就限制了这个vector中feature的distribution在两个domain中相同。
 
    ​	c.Cycle Consistency--Combo GAN
 
-   ![](/home/zeze/Documents/Note/DeepLearning/GAN/Pic/Screenshot from 2019-05-20 15-53-34.png)
+   ![](Pic/Screenshot from 2019-05-20 15-53-34.png)
 
    ​	b.Semantic Consistency--DTN，XGAN：与Cycle Consistency相似，比较latent space中embedding vector的相似程度
 
-   ![](/home/zeze/Documents/Note/DeepLearning/GAN/Pic/Screenshot from 2019-05-20 15-54-07.png)
+   ![](Pic/Screenshot from 2019-05-20 15-54-07.png)
 
