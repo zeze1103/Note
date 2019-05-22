@@ -18,6 +18,8 @@ C特点： 操作系统/嵌入式硬件/高性能要求
 
 ​	gcc main.c -o main.out && ./main.out	&& 用于连接两个指令，但是要求前一个文件的返回值必须是0
 
+​	gcc -o helloworld.i helloworld.c  -E	由helloworld.c预处理生成helloworld.i
+
 # 三.include:
 
 ​	#include <stdio.h>	引用系统自带的声明文件
