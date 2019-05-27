@@ -281,3 +281,70 @@ domain classifier	分辨来自哪个Domain，这样就能使提取出的feature�
 
 拿语音方面做例子，那么这个东西就可以把一段语音中是哪个人说的的“声纹信息”和具体说的内容的“文字信息”分开。
 
+## Photo Editing
+
+![](/home/zeze/Documents/Note/DeepLearning/GAN/Pic/Screenshot from 2019-05-26 12-05-17.png)
+
+![](/home/zeze/Documents/Note/DeepLearning/GAN/Pic/Screenshot from 2019-05-26 12-05-49.png)
+
+先训练一个GAN得到generator。为了能够清楚知道具体latent space中z的哪些信息代表了不同的feature（比如长头发），他在generator固定住，作为Decoder又训练了一个Auto-Encoder（其中，之前GAN中的deixriminator的参数可以用来初始化新的Encoder)。
+
+使用训练好的Encoder得到所有图片的在隐空间中的z之后，将“长头发”-“短头发”，差值就是控制头发长度的信息。
+
+## Intelligent Photoshop
+
+## Super-Resolution
+
+## Image Completion
+
+## Improving Sequence Generation by GAN
+
+## Evaluation
+
+### Likelihood
+
+计算Generator产生真实图片的几率，但是对于GAN来说，不能计算产生某一张固定图片的几率。
+
+#### 解决方法：Kernel Density Estimation
+
+1. 先用Generator产生一系列图像
+
+2. 每一个生成的样本都是可以用Gaussian Mixture Model拟合
+
+3. 通过这些Gaussian Mixture Model计算产生真实数据的概率，再计算Generator产生真是图片的几率。
+
+   ![](/home/zeze/Documents/Note/DeepLearning/GAN/Pic/Screenshot from 2019-05-27 09-23-28.png)
+
+### Likelihood vs Quality
+
+![](/home/zeze/Documents/Note/DeepLearning/GAN/Pic/Screenshot from 2019-05-27 09-24-00.png)
+
+### Objective Evaluation
+
+![](/home/zeze/Documents/Note/DeepLearning/GAN/Pic/Screenshot from 2019-05-27 09-25-20.png)
+
+从两个方向来评价GAN生成的图像：
+
+1. 一个是用与训练好的分类网络进行预测，预测结果越集中与某个种类，那么说明生成的图像越好。
+2. 使用多个CNN预测多张图片的结果，结果分布越平均意味着生成的图片的variety越高
+
+![](/home/zeze/Documents/Note/DeepLearning/GAN/Pic/Screenshot from 2019-05-27 09-28-44.png)
+
+Inception Score: 就是上面的两项
+
+### We don’t want memory GAN
+
+就是说不想让GAN只生成数据库中某几张图以欺骗Discriminator
+
+### Mode Dropping
+
+GAN中产生的distribution 太小了
+
+DCGAN\ALI
+
+Mini-batch discriminator
+
+1. 让discriminator去辨别一个batch里的数据是否是真实的
+
+Optimal transport GAN
+
